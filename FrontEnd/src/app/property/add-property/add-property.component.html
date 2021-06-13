@@ -1,0 +1,42 @@
+<div class="card">
+  <div class="card-header">
+    List your Property
+  </div>
+  <div class="card-body">
+    <form (ngSubmit)="onSubmit()" #Form="ngForm">
+      <div>
+        <tabset>
+          <tab heading="Basic Info">
+            <div class="form-group col-12">
+              <label for="name">Name</label>
+              <input type="text" class="form-control" #propName="ngModel" ngModel name="Name" required minlength="5">
+              <span *ngIf="!propName.valid && propName.touched" class="error-block">
+                <span *ngIf="propName.errors.required">Please provide Name</span>
+                <span *ngIf="propName.errors.minlength">Name must be 5 char long</span>
+              </span>
+            </div>
+
+            <div class="form-group col-12">
+              <label for="type">Type</label>
+              <input type="text" class="form-control" ngModel name="Type">
+            </div>
+
+            <div class="form-group col-12">
+              <label for="price">Price</label>
+              <input type="text" class="form-control" ngModel name="Price">
+            </div>
+
+            <div class="form-group col-12">
+              <button type="button" class="btn btn-primary btn-block" style="width:100%">Next</button>
+            </div>
+          </tab>
+          <tab heading="Pricing and Area">Pricing Information</tab>
+          <tab heading="Address">Address</tab>
+          <tab heading="Other Details">Other Details</tab>
+          <tab heading="Photos">Upload Photos</tab>
+        </tabset>
+      </div>
+
+    </form>
+  </div>
+</div>
